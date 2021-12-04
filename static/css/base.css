@@ -1,0 +1,49 @@
+html {
+    height: 100%;
+}
+
+body {
+    background: url('/media/hero-img.webp') no-repeat center center fixed, rgba(0, 0, 0, 0.6);
+    background-size: cover;
+    background-blend-mode: overlay;
+    color: rgb(34, 30, 30);
+    font-family: 'Oswald', sans-serif;
+}
+
+header {
+    background-color: #845EC2;
+    padding: 1em;
+}
+
+.header-container {
+    padding-top: 201px;
+}
+
+.intro-container {
+    margin-top: 6em;
+}
+
+h1 {
+    font-family: 'Gwendolyn', cursive;
+    font-weight: bold;
+    color: #fff;
+}
+
+/* Button style */
+.shop-btn {
+    background-color: #00C9A7;
+}
+
+.shop-btn:hover {
+    background-color: #007a66;
+    color: #fff;
+}
+
+/* Media queries */
+
+/* Slightly larger container on xl screens */
+@media (min-width: 1200px) {
+    .container {
+      max-width: 80%;
+    }
+}

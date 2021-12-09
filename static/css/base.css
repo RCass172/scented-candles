@@ -39,6 +39,15 @@ h1 {
     background-color: #FBEAFF;
 }
 
+.detail-box {
+    background-color: #FBEAFF;
+}
+
+.img-container img {
+    height: 300px;
+    margin-right: 12px;
+}
+
 /* Button style */
 .shop-btn {
     background-color: #00C9A7;

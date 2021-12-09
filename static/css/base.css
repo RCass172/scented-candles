@@ -16,7 +16,7 @@ header {
 }
 
 .header-container {
-    padding-top: 201px;
+    padding-top: 210px;
 }
 
 .intro-container {
@@ -27,6 +27,16 @@ h1 {
     font-family: 'Gwendolyn', cursive;
     font-weight: bold;
     color: #fff;
+}
+
+/* products page */
+h2 {
+    background-color: #FBEAFF;
+    margin: 0 2em;
+}
+
+.card-body {
+    background-color: #FBEAFF;
 }
 
 /* Button style */
@@ -45,5 +55,11 @@ h1 {
 @media (min-width: 1200px) {
     .container {
       max-width: 80%;
+    }
+}
+
+@media (max-width: 576px) {
+    .header-container {
+        padding-top: 270px;
     }
 }

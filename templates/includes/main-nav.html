@@ -8,8 +8,8 @@
             </a>
             <!--Product Dropdown Category-->
             <div class="dropdown-menu" aria-labelledby="all-products-link">
-                <a class="dropdown-item" href="#">By Cost</a>
-                <a class="dropdown-item" href="#">By Category</a>
+                <a class="dropdown-item" href="{% url 'products' %}?sort=price&direction=asc">By Cost</a>
+                <a class="dropdown-item" href="{% url 'products' %}?sort=category&direction=asc">By Category</a>
                 <a class="dropdown-item" href="{% url 'products' %}">All products</a>
             </div>
         </li>

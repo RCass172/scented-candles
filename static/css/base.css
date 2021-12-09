@@ -30,7 +30,7 @@ h1 {
 }
 
 /* products page */
-h2 {
+.product-header {
     background-color: #FBEAFF;
     margin: 0 2em;
 }

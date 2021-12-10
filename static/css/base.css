@@ -48,6 +48,19 @@ h1 {
     margin-right: 12px;
 }
 
+.product-list span,
+.product-list a {
+    color: #fff;
+    text-shadow: 1px 1px #000;
+    letter-spacing: .1em;
+}
+
+.product-list a:hover {
+    color: rgb(201, 186, 186);
+    font-weight: bold;
+    text-shadow: 1px 1px #000
+}
+
 /* Button style */
 .shop-btn {
     background-color: #00C9A7;

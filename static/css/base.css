@@ -61,6 +61,34 @@ h1 {
     text-shadow: 1px 1px #000
 }
 
+/* Scroll up button */
+.up-btn {
+    position: fixed;
+    bottom: 2em;
+    right: 2em;
+    height: 50px;
+    width: 50px;
+    background-color: #00C9A7;
+    font-size: 25px;
+}
+
+.up-btn a {
+    text-decoration: none;
+}
+
+.scroll-up {
+    cursor: pointer;
+    color: #fff;
+}
+
+.scroll-up:hover {
+    color: #00C9A7;
+}
+
+.up-btn:hover {
+    background-color: #fff;
+}
+
 /* Button style */
 .shop-btn {
     background-color: #00C9A7;

@@ -119,13 +119,17 @@
     </header>
 
     {% if messages %}
-    <div class="mess-container"></div>
+        <div class="mess-container"></div>
     {% endif %}
 
     {% block page_header %}
     {% endblock %}
 
     {% block content %}
+    {% endblock %}
+
+    {% block postloadjs %}
+        <script src="{% static 'js/products.js' %}"></script>
     {% endblock %}
 
 </body>

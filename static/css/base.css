@@ -61,6 +61,11 @@ h1 {
     text-shadow: 1px 1px #000
 }
 
+/* Shopping cart */
+.shop-cart {
+    background-color: #FBEAFF;
+}
+
 /* Scroll up button */
 .up-btn {
     position: fixed;

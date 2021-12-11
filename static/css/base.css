@@ -66,6 +66,17 @@ h1 {
     background-color: #FBEAFF;
 }
 
+/* Hide Arrows From Input Number - https://www.w3schools.com/howto/howto_css_hide_arrow_number.asp */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
 /* Scroll up button */
 .up-btn {
     position: fixed;

@@ -22,7 +22,10 @@ def cart_contents(request):
             'product': product
         })
 
-    delivery = 5
+    if product_count > 0:
+        delivery = 5
+    else:
+        delivery = 0
 
     grand_total = delivery + total
 

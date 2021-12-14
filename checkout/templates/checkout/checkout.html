@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'checkout/css/stripe-elements.css' %}">
+{% endblock %}
+
 {% block page_header %}
 <div class="container header-container">
     <div class="row">
@@ -96,8 +100,8 @@
                             {% endif %}
                         </div>
                     </fieldset>
-                    <fieldset class="mb-4">
-                        <legend class="fieldset-label small w-auto px-3">Payment Details</legend>
+                    <fieldset class="px-3">
+                        <legend class="fieldset-label small w-auto px-2">Payment Details</legend>
                         <!-- A Stripe card element -->
                         <div class="mb-4" id="card-element"></div>
                         <!-- Displays form errors -->
@@ -119,4 +123,11 @@
             </div>
         </div>
     </div>
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    {{ stripe_public_key|json_script:"id_stripe_public_key" }}
+    {{ client_secret|json_script:"id_client_secret" }}
+    <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
 {% endblock %}

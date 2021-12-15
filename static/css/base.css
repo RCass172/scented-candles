@@ -62,7 +62,8 @@ h1 {
 }
 
 /* Shopping cart */
-.shop-cart {
+.shop-cart,
+.profile-content {
     background-color: #FBEAFF;
 }
 

@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'products',
     'cart',
     'checkout',
+    'profiles',
     # Formats all forms using Bootstrap
     'crispy_forms',
 ]

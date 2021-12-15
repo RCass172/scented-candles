@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'checkout/css/stripe-elements.css' %}">
+{% endblock %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col">
+            
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+    <div class="container mt-4 shop-cart">
+        <div class="row">
+            <div class="col">
+                <h2 class="mb-4 mt-4 text-center">Thanks for shopping with Scented Candles</h2>
+                <p>Your order details are below.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12"></div>
+        </div>
+        <div class="row"></div>
+            <div class="col-12 text-center">
+                <a href="{% url 'products' %}?category=jar_candles,wax_melt_bags,single_wax_melts,tin_candles" class="btn shop-btn rounded-0 my-2">
+                    <span class="icon mr-2">
+                        <i class="fas fa-store"></i>
+                    </span>
+                    <span class="text-uppercase">Check out some more of our products!</span>
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

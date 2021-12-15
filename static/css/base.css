@@ -127,6 +127,24 @@ input[type=number] {
     color: #fff;
 }
 
+/* Allauth forms */
+.allauth-form-inner-content p {
+    margin-top: 1.75em;
+}
+
+.allauth-form-inner-content input {
+    margin-bottom: 1.75em;
+}
+
+.secondaryAction,
+.allauth-form-inner-content button {
+    margin: .75em;  
+}
+
+.login-signup {
+    color: #845EC2;
+}
+
 /* Media queries */
 
 /* Slightly larger container on xl screens */

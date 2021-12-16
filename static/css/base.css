@@ -145,6 +145,14 @@ input[type=number] {
     color: #845EC2;
 }
 
+input, select {
+    margin-bottom: 1em;
+}
+
+#profile-form select {
+    color: grey; !important
+}
+
 /* Media queries */
 
 /* Slightly larger container on xl screens */

@@ -22,5 +22,19 @@
                 <h2 class="mb-4 mt-4 text-center">Welcome {{ profile }}</h2>
             </div>
         </div>
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <p>Order History</p>
+                {{ orders }}
+            </div>
+            <div class="col-12 col-md-6">
+                <p>Delivery Information</p>
+                <form class="mt-4" action="{% url 'profile' %}" method="POST" id="profile-form">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <button class="btn shop-btn text-uppercase">Update Info</button>
+                </form>
+            </div>
+        </div>
     </div>
 {% endblock %}

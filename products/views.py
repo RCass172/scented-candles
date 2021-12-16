@@ -1,7 +1,9 @@
+"""imports"""
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
 from django.db.models.functions import Lower
+from django.contrib.auth.decorators import login_required
 from .models import Product, Category
 from .forms import ProductForm
 
@@ -70,6 +72,7 @@ def product_info(request, product_id):
     return render(request, 'products/product_info.html', context)
 
 
+@login_required
 def add_product(request):
     """ Add product to the shop """
     if not request.user.is_superuser:
@@ -97,6 +100,7 @@ def add_product(request):
     return render(request, template, context)
 
 
+@login_required
 def edit_product(request, product_id):
     """ Edit a product in shop """
     if not request.user.is_superuser:
@@ -127,6 +131,7 @@ def edit_product(request, product_id):
     return render(request, template, context)
 
 
+@login_required
 def del_product(request, product_id):
     """ Delete a product from the store """
     if not request.user.is_superuser:

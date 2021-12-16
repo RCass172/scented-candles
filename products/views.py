@@ -82,8 +82,7 @@ def add_product(request):
             product = form.save()
             messages.success(
                 request, 'Your product has been added successfully')
-            return redirect(
-                reverse('add_product'))
+            return redirect(reverse('product_info', args=[product.id]))
         else:
             messages.error(
                 request, 'Sorry, product not added. Please check form is entered correctly.')
@@ -109,7 +108,8 @@ def edit_product(request, product_id):
         form = ProductForm(request.POST, request.FILES, instance=product)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Your product has been added successfully')
+            messages.success(
+                request, 'Your product has been added successfully')
             return redirect(reverse('product_info', args=[product.id]))
         else:
             messages.error(
@@ -125,3 +125,17 @@ def edit_product(request, product_id):
     }
 
     return render(request, template, context)
+
+
+def del_product(request, product_id):
+    """ Delete a product from the store """
+    if not request.user.is_superuser:
+        messages.error(
+            request, 'Sorry, product not deleted. Please check form is entered correctly.')
+        return redirect(reverse('home'))
+
+    product = get_object_or_404(Product, pk=product_id)
+    product.delete()
+    messages.success(
+        request, 'Your product has been deleted successfully')
+    return redirect(reverse('products'))

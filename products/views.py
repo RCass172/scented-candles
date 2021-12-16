@@ -3,6 +3,7 @@ from django.contrib import messages
 from django.db.models import Q
 from django.db.models.functions import Lower
 from .models import Product, Category
+from .forms import ProductForm
 
 
 # Create your views here.
@@ -67,3 +68,31 @@ def product_info(request, product_id):
     }
 
     return render(request, 'products/product_info.html', context)
+
+
+def add_product(request):
+    """ Add product to the shop """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, shop owners allowed only.')
+        return redirect(reverse('home'))
+
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES)
+        if form.is_valid():
+            product = form.save()
+            messages.success(
+                request, 'Your product has been added successfully')
+            return redirect(
+                reverse('add_product'))
+        else:
+            messages.error(
+                request, 'Sorry, product not added. Please check form is entered correctly.')
+    else:
+        form = ProductForm()
+
+    template = 'products/add_product.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)

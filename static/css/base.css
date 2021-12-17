@@ -8,6 +8,9 @@ body {
     background-blend-mode: overlay;
     color: rgb(34, 30, 30);
     font-family: 'Oswald', sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
 }
 
 header {
@@ -160,7 +163,6 @@ input, select {
     background-color: #845EC2;
     margin: 0;
     color: #fff;
-    position: relative;
     bottom: 0; 
     width: 100%;
     height: 120px;

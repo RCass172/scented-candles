@@ -107,11 +107,15 @@
                     <div class="row">
                         <div class="col-12 mt-4">
                             <h3 class="mb-4">Reviews</h3>
-                            {% for review in product.reviews.all %}
-                                <p>{{ review.review_details }}</p>
-                                <small><strong>By: {{ review.profile.user.username}} </strong></small>
-                                <hr class="m-5">
-                            {% endfor %}
+                            {% if product.reviews.all|length > 0 %}
+                                {% for review in product.reviews.all %}
+                                    <p>{{ review.review_details }}</p>
+                                    <small><strong>By: {{ review.profile.user.username}} </strong></small>
+                                    <hr class="m-5">
+                                {% endfor %}
+                            {% else %}
+                                <p>Sorry, no reviews yet :(</p>
+                            {% endif %}
                         </div>
                     </div>
 

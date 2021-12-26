@@ -81,6 +81,37 @@
                         </div>
                     </form>
 
+                    {% if user.is_authenticated %}
+                        <!-- Review form -->
+                        <div class="row">
+                            <div class="col-12 mt-4 px-0">
+                                <h3>Reviews</h3>
+                                <form class="form" action="{% url 'add_review' product.id %}" method="POST">
+                                    {% csrf_token %}
+                                    <div class="form-row">
+                                        {{ ReviewForm }}
+                                        <div class="form-group">
+                                            <input type="text" placeholder="Enter Your Review">
+                                        </div>
+                                    </div>                    
+                                        <button class="shop-btn btn text-uppercase mt-4">
+                                            <span class="font-weight-bold">Submit Review</span>
+                                        </button>                          
+                                </form>
+                                <hr>
+                            </div>
+                        </div>
+                    {% endif %}
+
+                    <div class="row">
+                        <div class="col-12 mt-4">
+                            {% for review in product.reviews.all %}
+                                <p><strong>{{ review.profile.user.username}} </strong></p>
+                                <p>{{ review.review_details }}</p>
+                            {% endfor %}
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>

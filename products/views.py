@@ -66,10 +66,11 @@ def product_info(request, product_id):
 
     product = get_object_or_404(Product, pk=product_id)
 
-    ReviewForm()
+    review_form = ReviewForm()
 
     context = {
         'product': product,
+        'review_form': review_form,
     }
 
     return render(request, 'products/product_info.html', context)

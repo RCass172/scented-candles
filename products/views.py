@@ -150,6 +150,7 @@ def del_product(request, product_id):
     return redirect(reverse('products'))
 
 
+@login_required
 def add_review(request, product_id):
     """ Add review to product """
     if request.method == 'POST':
@@ -166,3 +167,18 @@ def add_review(request, product_id):
             messages.error(
                 request, 'Sorry, review not added. Please check form is entered correctly.')
     return redirect(reverse('product_info', args=[product_id]))
+
+
+@login_required
+def del_review(request, review_id):
+    """ Delete a review from the product """
+    review = get_object_or_404(Review, pk=review_id)
+    if request.user == review.profile.user:
+        review.delete()
+        messages.success(
+            request, 'Your review has been deleted successfully')
+        return redirect(reverse('products'))
+
+    messages.error(
+        request, 'Sorry you are unable to delete reviews')
+    return redirect(reverse('products'))

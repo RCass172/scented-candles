@@ -109,7 +109,12 @@
                             {% if product.reviews.all|length > 0 %}
                                 {% for review in product.reviews.all %}
                                     <p>{{ review.review_details }}</p>
-                                    <small><strong>By: {{ review.profile.user.username}} </strong></small>
+                                    <small><strong>By: {{ review.profile.user.username}} </strong></small><br>
+                                    {% if request.user == review.profile.user %}
+                                        <small class="ml-3">
+                                            <a class="text-danger" href="{% url 'del_review' review.id %}">Delete</a>
+                                        </small>
+                                    {% endif %}
                                     <hr class="m-5">
                                 {% endfor %}
                             {% else %}

@@ -112,6 +112,7 @@
                                     <small><strong>By: {{ review.profile.user.username}} </strong></small><br>
                                     {% if request.user == review.profile.user %}
                                         <small class="ml-3">
+                                            <a href="{% url 'edit_review' review.id %}">Edit</a>
                                             <a class="text-danger" href="{% url 'del_review' review.id %}">Delete</a>
                                         </small>
                                     {% endif %}

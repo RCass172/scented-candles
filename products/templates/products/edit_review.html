@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col">
+            
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col">
+                <h2 class="mb-2 mt-4 text-center">Update Review</h2>
+                <p class="text-center mb-4">Edit your review here:</p>
+                <form method="POST" action="" class="form mb-4" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form | crispy }}
+                    <div>
+                        <a class="btn shop-btn" href="{% url 'products' %}">Cancel</a>
+                        <button class="btn shop-btn" type="submit">Edit Product</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

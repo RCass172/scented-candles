@@ -182,3 +182,33 @@ def del_review(request, review_id):
     messages.error(
         request, 'Sorry you are unable to delete reviews')
     return redirect(reverse('products'))
+
+
+@login_required
+def edit_review(request, review_id):
+    """ Update a review from the product """
+    review = get_object_or_404(Review, pk=review_id)
+    if request.user == review.profile.user:
+        if request.method == 'POST':
+            form = ReviewForm(request.POST, instance=review)
+            if form.is_valid():
+                form.save()
+                messages.success(
+                    request, 'Your review has been updated successfully')
+                return redirect(reverse('products'))
+            else:
+                messages.error(
+                    request, 'Sorry you are unable to update reviews')
+        else:
+            form = ReviewForm(instance=review)
+    else:
+        messages.error(
+            request, 'Sorry you are unable to update reviews')
+        return redirect("products")
+    
+    template = 'products/edit_review.html'
+    context = {
+        'form': form,
+        'review': review,
+    }
+    return render(request, template, context)

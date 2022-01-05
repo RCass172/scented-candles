@@ -57,12 +57,20 @@
                 <div class="row text-black text-right">
                     <div class="col-7 offset-2 mt-2">
                         <p class="my-0">Order Total:</p>
-                        <p class="my-0">Delivery:</p>
-                        <p class="my-0">Grand Total:</p>
+                        {% if code %}
+                            <p class="my-0 mb-2">Coupon Added:</p>
+                            <p class="my-0">Total:</p>
+                        {% endif %}
+                        <p class="my-0 mb-2">Delivery:</p>
+                        <p class="my-0"><strong>Grand Total:</strong></p>
                     </div>
                     <div class="col-3 mt-2">
                         <p class="my-0">€{{ total | floatformat:2 }}</p>
-                        <p class="my-0">€{{ delivery | floatformat:2 }}</p>
+                        {% if code %}
+                            <p class="my-0 mb-2">- {{ code.amount }}%</p>
+                            <p class="my-0">€{{ coupon_total | floatformat:2 }}</p>
+                        {% endif %}
+                        <p class="my-0 mb-2">€{{ delivery | floatformat:2 }}</p>
                         <p class="my-0"><strong>€{{ grand_total | floatformat:2 }}</strong></p>
                     </div>
                 </div>

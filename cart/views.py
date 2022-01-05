@@ -1,5 +1,10 @@
 """ imports """
-from django.shortcuts import render, redirect, reverse, HttpResponse
+from django.shortcuts import (
+    render, redirect, reverse, HttpResponse)
+from django.views.decorators.http import require_http_methods
+from django.contrib import messages
+from .models import Coupon
+from .forms import CouponApplyForm
 
 
 # Create your views here.
@@ -52,3 +57,22 @@ def remove_from_cart(request, item_id):
 
     except Exception as e:
         return HttpResponse(status=500)
+
+
+@require_http_methods(["GET", "POST"])
+def apply_coupon(request):
+    coupon_form = CouponApplyForm(request.POST)
+    if coupon_form.is_valid():
+        code = coupon_form.cleaned_data['code']
+    try:
+        coupon = Coupon.objects.get(code=code, active=True)
+        request.session['coupon_id'] = coupon.id
+        messages.success(
+            request, 'Coupon has been applied')
+    except Coupon.DoesNotExist:
+        request.session['coupon_id'] = None
+        messages.warning(
+            request, 'Coupon has not been accepted')
+        return redirect('view_cart')
+    else:
+        return redirect('view_cart')

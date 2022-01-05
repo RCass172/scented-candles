@@ -62,8 +62,7 @@ def remove_from_cart(request, item_id):
 @require_http_methods(["GET", "POST"])
 def apply_coupon(request):
     coupon_form = CouponApplyForm(request.POST)
-    if coupon_form.is_valid():
-        code = coupon_form.cleaned_data['code']
+    code = request.POST.get('coupon-code')
     try:
         coupon = Coupon.objects.get(code=code, active=True)
         request.session['coupon_id'] = coupon.id

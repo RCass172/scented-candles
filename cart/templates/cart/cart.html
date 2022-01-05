@@ -91,7 +91,19 @@
                             <tr>
                                 <td colspan="5" class="pt-5 text-right">
                                     <h6><strong>Bag Total: €{{ total|floatformat:2 }}</strong></h6>
+                                    {% if code %}
+                                        <p>Discount - {{ code.amount }}%</p>
+                                        <p>Total after Discount: €{{ coupon_total|floatformat:"2" }}</p>
+                                    {% endif %}
                                     <h6>Delivery: €{{ delivery|floatformat:2 }}</h6>
+                                    <div class="col-12">
+                                        <h6 class="mt-4"><strong>Apply coupon</strong></h6>
+                                        <form action="{% url 'apply_coupon' %}" method='POST' class="mb-4">
+                                            {% csrf_token %}
+                                            <input class="w-50" type="text" name="coupon-code" maxlength="20"><br>
+                                            <button type='submit' class='btn shop-btn'>Apply</button>
+                                        </form>
+                                    </div>
                                     <h4 class="mt-4"><strong>Grand Total: €{{ grand_total|floatformat:2 }}</strong></h4>
                                 </td>
                             </tr>

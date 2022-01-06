@@ -60,7 +60,7 @@
                                                         data-item_id="{{ item.item_id }}"
                                                         id="id_qty_{{ item.item_id }}">
                                                     <div class="input-group-prepend">
-                                                        <button class="decrement-qty btn btn-sm" 
+                                                        <button class="decrement-qty btn btn-sm" aria-label="decrement button"
                                                             data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
                                                             <span>
                                                                 <i class="fas fa-minus fa-sm"></i>
@@ -68,7 +68,7 @@
                                                         </button>
                                                     </div>
                                                     <div class="input-group-append">
-                                                        <button class="increment-qty btn btn-sm"
+                                                        <button class="increment-qty btn btn-sm" aria-label="increment button"
                                                             data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
                                                             <span>
                                                                 <i class="fas fa-plus fa-sm"></i>
@@ -79,7 +79,7 @@
                                             </div>
                                         </form>
                                         <a class="update-link"><small>Update</small></a>
-                                        <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}">
+                                        <a class="remove-item float-right" id="remove_{{ item.item_id }}">
                                             <small>Remove</small>
                                         </a>
                                     </td>

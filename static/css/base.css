@@ -161,6 +161,13 @@ input, select {
     color: grey;
 }
 
+/* Coupon Display */
+.coupon-display {
+    background-color: #007a66;
+    color: #fff;
+    margin: 0;
+}
+
 /* Footer */
 
 .page-footer {

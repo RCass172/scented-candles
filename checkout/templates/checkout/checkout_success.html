@@ -166,6 +166,14 @@
                         <div class="col-12 col-md-8 text-md-right">
                             <p class="mb-0">€{{ order.order_total }}</p>
                         </div>
+                        {% if order.coupon is not None %}
+                            <div class="col-12 col-md-4">
+                                <p class="mb-0 font-weight-bold">Discount</p>
+                            </div>
+                            <div class="col-12 col-md-8 text-md-right">
+                                <p class="mb-0">- {{ order.coupon.amount }}%</p>
+                            </div>
+                        {% endif %}
                     </div>
 
                     <div class="row">

@@ -1,10 +1,12 @@
 """ Imports """
 import uuid
+from decimal import Decimal
 from django.db import models
 from django.db.models import Sum
 from django_countries.fields import CountryField
 from products.models import Product
 from profiles.models import UserProfile
+from cart.models import Coupon
 
 
 # Taken from Code institute Boutique Ado project
@@ -28,6 +30,8 @@ class Order(models.Model):
     street_address2 = models.CharField(max_length=80, null=True, blank=True)
     county = models.CharField(max_length=80, null=True, blank=True)
     date = models.DateTimeField(auto_now_add=True)
+    coupon = models.ForeignKey(
+        Coupon, on_delete=models.SET_NULL, null=True, blank=True)
     delivery_cost = models.DecimalField(
         max_digits=6, decimal_places=2, null=False, default=0)
     order_total = models.DecimalField(
@@ -46,9 +50,17 @@ class Order(models.Model):
         """Update grand total for line item added inc. delivery costs"""
         self.order_total = self.lineitems.aggregate(
             Sum('lineitem_total'))['lineitem_total__sum'] or 0
-        self.delivery_cost = 5
-        self.grand_total = self.order_total + self.delivery_cost
-        self.save()
+        # Check if coupon
+        if self.coupon is not None:
+            discount = self.lineitems.aggregate(
+                Sum('lineitem_total'))['lineitem_total__sum']*(self.coupon.amount/Decimal('100'))
+            self.delivery_cost = 5
+            self.grand_total = self.order_total + self.delivery_cost - discount
+            self.save()
+        else:
+            self.delivery_cost = 5
+            self.grand_total = self.order_total + self.delivery_cost
+            self.save()
 
     def save(self, *args, **kwargs):
         """Override the original save method to set the order number"""

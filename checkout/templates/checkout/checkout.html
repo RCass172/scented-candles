@@ -28,10 +28,10 @@
                 <p>Order Summary ({{ product_count }})</p>
                 <div class="row">
                     <div class="col-7 offset-2">
-                        <p class="mb-1 mt-0 small text-muted">Item</p>
+                        <p class="mb-1 mt-0 small">Item</p>
                     </div>
                     <div class="col-3 text-right">
-                        <p class="mb-1 mt-0 small text-muted">Each</p>
+                        <p class="mb-1 mt-0 small">Each</p>
                     </div>
                 </div>
                 {% for item in cart_products %}
@@ -47,10 +47,10 @@
                     </div>
                     <div class="col-7 mb-4">
                         <p class="my-0"><strong>{{ item.product.name }}</strong></p>
-                        <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
+                        <p class="my-0 small">Qty: {{ item.quantity }}</p>
                     </div>
                     <div class="col-3 text-right">
-                        <p class="my-0 small text-muted">€{{ item.product.price }}</p>
+                        <p class="my-0"><strong>€{{ item.product.price }}</strong></p>
                     </div>
                 </div>
                 {% endfor %}
@@ -102,8 +102,8 @@
                                 checked>
                             {% else %}
                             <label class="form-check-label" for="id-save-info">
-                                <a class="text-info" href="{% url 'account_signup' %}">Create an account</a> or
-                                <a class="text-info" href="{% url 'account_login' %}">login</a> to save this information
+                                <a class="account-link" href="{% url 'account_signup' %}">Create an account</a> or
+                                <a class="account-link" href="{% url 'account_login' %}">login</a> to save this information
                             </label>
                             {% endif %}
                         </div>

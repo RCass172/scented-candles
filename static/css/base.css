@@ -210,6 +210,12 @@ input, select {
     color: #007a66;
 }
 
+/* Error pages */
+.error-container {
+    background-color: #FBEAFF;
+    margin-top: 2em;
+}
+
 /* Media queries */
 
 /* Slightly larger container on xl screens */

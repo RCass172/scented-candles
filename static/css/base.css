@@ -216,6 +216,26 @@ input, select {
     margin-top: 2em;
 }
 
+/* Custom toast message display */
+.mess-container {
+    position: fixed;
+    top: 50px;
+    right: 10px;
+    z-index: 9999999;
+}
+
+.custom-toast-msgs {
+    overflow: visible;
+}
+
+.toast-capper {
+    height: 4px;
+}
+
+.toast-header button {
+    right: 4px;
+}
+
 /* Media queries */
 
 /* Slightly larger container on xl screens */
@@ -228,5 +248,16 @@ input, select {
 @media (max-width: 576px) {
     .header-container {
         padding-top: 270px;
+    }
+}
+
+@media (max-width: 380px) {
+    .mess-container {
+       width: 100vw;
+    }
+
+    .img-container img {
+        height: 200px;
+        margin-right: 5px;
     }
 }

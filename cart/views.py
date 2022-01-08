@@ -1,8 +1,9 @@
 """ imports """
 from django.shortcuts import (
-    render, redirect, reverse, HttpResponse)
+    render, redirect, reverse, get_object_or_404, HttpResponse)
 from django.views.decorators.http import require_http_methods
 from django.contrib import messages
+from products.models import Product
 from .models import Coupon
 from .forms import CouponApplyForm
 
@@ -15,14 +16,20 @@ def view_cart(request):
 
 def add_to_cart(request, item_id):
     """ A view to add products to cart """
+
+    product = get_object_or_404(Product, pk=item_id)
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
     cart = request.session.get('cart', {})
 
     if item_id in list(cart.keys()):
         cart[item_id] += quantity
+        messages.success(
+                request, f'Updated {product.name} total is {cart[item_id]}')
     else:
         cart[item_id] = quantity
+        messages.success(
+            request, f'Successfully added {product.name} to your cart')
 
     request.session['cart'] = cart
 

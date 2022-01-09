@@ -252,15 +252,24 @@ Testing was carried out along the way of developing the site with fixes made thr
     - Once logged in as an admin user the navbar contains a link to the manage products page where they can add a product to the database. By clicking onto the products page or on an individual product information page, the admin user has an update and delete button which allows them to carry out each task and therefore allowing the CRUD functionalilty
 18. The ability to tell when successfully purchased a product
     - Once a user submits a purchase by checkout in the cart, they are shown the checkout success page which displays the order details
+19. To be able to leave a review for a product
+    - Once a logged in user is on an individual product details page, the user can write their review in the review section, which can be seen by both registered and unregistered users. 
+20. The ability to edit or delete any reviews made
+    - Once a user is logged in they can edit or delete reviews that have been made by them.
+21. The ability to easily add a discount coupon
+    - When a user clicks through to their shopping cart, there is an input for them to add a working coupon to get a discount on their order
 
 ## **Testing Functionality**
 
-- Testing was done on all the features of the website to make sure everything was workiong as expected. 
+- Testing was done on all the features of the website to make sure everything was working as expected. 
 - Links were checked to make sure opened correctly with no broken links. External links such as the social media icons all opened in a new tab as expected. All internal links checked to make sure correct pages opened when clicked. 
 - CRUD functions were tested to ensure products we easily created, read, updated and deleted as expected. 
 - The checkout page was tested to make sure stripe was working to allow users to purchase products.
 - Family and friends were asked to check all aspects of website to check for any errors or bugs.
 Overall I was happy everything functioned as it should.
+- Lighthouse was used to test each page with some accessibility errors such as button names and form labels and UI errors such as color contrasts fixed.
+- Custom error pages were checked to see they displayed correctly and as expected.
+- User actions were checked on all functionality of the website to ensure toast messages were displaying to users.
 
 ## **Testing Responsiveness**
 
@@ -318,6 +327,8 @@ _Results were good and as expected_
 ![Value Error](readme/images/Value-error.PNG)
 
 - I got a ValueError when trying to set up the adjust and remove views in the cart. After going over the code I realised I had product_id where it should have been item_id and also, as before, a clearance of the browser data and the cart worked as expected.
+
+- On setting up the email confirmation when a order was placed unfortunately I was unable to get the webhooks working as expected and wasn't receiving any emails to my email address once I placed an order. Looking back at Boutique Ado videos and slack channels for any fixes and not being able to get the desired results, it's a bug I have had to leave and want to fix in future updates once I develop more experience.
 
 ---
 

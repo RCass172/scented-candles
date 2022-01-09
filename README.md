@@ -58,6 +58,9 @@ As a user I would like:
 16. The ability to view order history when logged in as a general user
 17. To easily add a new product, edit a product or delete a product when logged in as an admin user
 18. The ability to tell when successfully purchased a product
+19. To be able to leave a review for a product
+20. The ability to edit or delete any reviews made
+21. The ability to easily add a discount coupon
 
 ## **Wireframes**
 

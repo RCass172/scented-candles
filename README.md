@@ -334,6 +334,20 @@ _Results were good and as expected_
 
 # **Deployment**
 
+## Forking The Repository
+
+1. Open GitHub and find relevant [repository](https://github.com/RCass172/scented-candles).
+2. On the top right click the fork button.
+3. This will now save a copy of the repository to your account which you can edit without changing original.
+
+## Making Local Clone
+
+1. Open GitHub and find relevant [repository](https://github.com/RCass172/scented-candles).
+2. Click the code dropdown button.
+3. Using the clone HTTPS option copy the link provided.
+4. Open Git Bash and change working directory to location where you want cloned directory to go.
+5. Type `git clone` command and paste the clone link you had copied.
+
 ## Heroku Deployment 
 
 Setup your Heroku workspace:
@@ -355,6 +369,46 @@ Add a PostgreSQL Database:
 1. Click the resources tab.
 2. Search for Heroku Postgres and click.
 3. Select Plan name 'Hobby Dev - Free' and then click 'Submit Order Form'.
+
+Setting up AWS:
+
+1. Signup or login to a [AWS account](https://signin.aws.amazon.com/signin?redirect_uri=https%3A%2F%2Fconsole.aws.amazon.com%2Fconsole%2Fhome%3Ffromtb%3Dtrue%26hashArgs%3D%2523%26isauthcode%3Dtrue%26state%3DhashArgsFromTB_us-east-1_cc742706219cb372&client_id=arn%3Aaws%3Asignin%3A%3A%3Aconsole%2Fcanvas&forceMobileApp=0&code_challenge=3sSLC7qYjEAw4KqeGtlb1dm9hgwM_TsblAkQEWQtP1o&code_challenge_method=SHA-256).
+2. Search for S3 in top searchbar and click onto page.
+3. Click on Create Bucket.
+4. Use your Heroku app name for bucket name and select region closest to you.
+5. Scroll down and uncheck 'block all public access' and tick acknowledgement.
+6. Scroll to bottom and click on Create Bucket.
+7. Click on Bucket name you created and into properties tab.
+8. Scroll to Static website hosting and click edit option to create a new endpoint (enter default values into the prompts and click save)
+9. Open the permissions tab, locate the CORS configuration section and add the following code:
+```
+[
+  {
+      "AllowedHeaders": [
+          "Authorization"
+      ],
+      "AllowedMethods": [
+          "GET"
+      ],
+      "AllowedOrigins": [
+          "*"
+      ],
+      "ExposeHeaders": []
+  }
+]
+```
+10. In the Bucket Policy section click edit and then policy generator.
+11. Choose S3 Bucket Policy from the Select Type of Policy dropdown.
+12. In 'Step 2: Add Statements' add the following settings:
+- Effect: Allow
+- Principal: * 
+- Actions: GetObject
+- ARN: Bucket ARN (from S3 Bucket page)
+13. Click Add Statement and then Generate Policy.
+14. Copy the policy from the popup that appears.
+15. Paste the generated policy into the Permissions - Bucket Policy area.
+16. Add '/*' at the end of the Resource key and save.
+17. Finally go to the Access Control List and select Everyone under Public Access.
 
 ---
 

@@ -118,6 +118,12 @@ For the fonts I linked GoogleFonts into the pages, using Oswald for the main tex
   - The checkout page allows users to enter their shipping details
   - Stripe is used to allow users to make a payment
 
+- Review Section
+  - The review section which is displayed on each product detail page allows all users to see any reviews left for each individual product
+
+- Toast Messages
+  - Toast messages are displayed to all users in order to give users visual feedback of their actions throughout the pages.
+
 - Footer
   - The footer which is fixed to the bottom of page includes the social media links for user to follow. These links use a hover effect for visual feedback and on clicking will open a new tab
 
@@ -130,6 +136,9 @@ All registered users have all the above features with added:
   - On registering or logging in, a user can go to their profile to update shipping details or see past orders.
   - An added nav menu item of "Sign Out" is now visible to users logged in to easily logout.
 
+- Review Section
+  - Along with the ability to see all reviews, logged in users are able to create, edit or delete their own reviews for basic CRUD functionality.
+
 ### **Admin User**
 
 Once logged in as an admin user all the above features are relevant plus:
@@ -141,14 +150,11 @@ Once logged in as an admin user all the above features are relevant plus:
 
 ## **Future Features**
 
-- Ratings and Reviews
-  - I would love to add a rating system to each product with the ability for users to leave a review once they have purchased a product.
+- Ratings
+  - I would love to add a rating system to each product with the ability for users to leave a rating once they have purchased a product.
 
 - Extra Add Functionality
   - I would like to add the functionality to admin users of adding new categories to the store.
-
-- Toast Messages
-  - Unfortunately I didn't have time to set up the toast messages to display to users. This is a feature I would like to add in order to give users visual feedback of their actions throughout the pages.
 
 ---
 

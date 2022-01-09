@@ -378,6 +378,10 @@ Content from the products were taken from [Candle Shack](https://candle-shack.co
 
 The fix for the Pillow errow was taken from [here](https://lechien73.github.io/reqfix/)
 
+The toast layout was taken from [here](https://getbootstrap.com/docs/4.3/components/toasts/)
+
+Help with the coupon model was got from [here](https://www.youtube.com/watch?v=_dSCGMJcoe4)
+
 ---
 
 # **Acknowledgments**

@@ -168,11 +168,20 @@ Once logged in as an admin user all the above features are relevant plus:
 - Products
   - Category_Name*
   - SKU
-  - Product_Name
+  - Product_Name*
   - Description
   - Price
   - Image_url
   - Image
+
+- Reviews
+  - Product_Name*
+  - username*
+  - review_details
+
+- Users
+  - username*
+  - password
 
 ---
 

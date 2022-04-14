@@ -444,4 +444,4 @@ I would like to thank Code Institute for this great learning experience along wi
 
 To my family and friends who helped provide great and honest feedback throughout the project.
 
-And finally thanks to the slack community for whenever I got stuck on (many) a problem, research (mostly) always pointed me in the right direction.
+And finally thank you to the slack community for whenever I got stuck on (many) a problem, research (mostly) always pointed me in the right direction.
